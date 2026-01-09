@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asper-Bot 307</title>
+  <link rel="icon" type="image/x-icon" href="png/logo_307.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    .inicio2 {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+      border-bottom: 1px solid #333;
+      background: #181818;
+    }
+    .inicio2-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .inicio2-col {
+      flex: 1 1 0;
+      background: #23232b;
+      border-radius: 12px;
+      padding: 40px 32px;
+      color: #fff;
+      box-shadow: 0 4px 24px #0003;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .inicio2-col h2 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+      font-weight: 900;
+      color: var(--color-primary);
+      font-family: 'Poppins', Arial, sans-serif;
+      text-align: center;
+      transition: color 0.2s;
+    }
+    .inicio2-col {
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .inicio2-col:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 32px #0005;
+    }
+    .inicio2-col p {
+      font-size: 1.15rem;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .inicio2-wrapper {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .inicio2-col {
+        padding: 28px 12px;
+        text-align: center;
+      }
+    }
+    .inicio1-content {
+      flex: 1 1 0;
+      text-align: left;
+    }
+    .inicio1-img {
+      flex: 0 0 320px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .inicio1-img img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px #0005;
+    }
+    @media (max-width: 900px) {
+      .inicio1-content {
+        text-align: center;
+      }
+      .inicio1-img {
+        justify-content: center;
+        margin: 0 auto;
+      }
+    }
+    header nav ul li a, nav ul li a, nav a {
+      color: #fff !important;
+      font-family: 'Poppins', Arial, sans-serif !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      transition: color 0.2s;
+    }
+    :root {
+      --color-primary: #B2CEA8;
+      --color-secondary: #B19BD9;
+      --color-bg: #121212;
+      --color-text: #fff;
+      --color-accent: #765aa8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER & NAV ===== */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 5vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      z-index: 20;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      max-width: 60px;
+      height: auto;
+    }
+
+    nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      transition: right 0.3s;
+      position: static;
+      height: auto;
+      width: auto;
+      background: none;
+      flex-direction: row;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 30;
+      margin-left: auto;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 3vw;
+      }
+      .logo {
+        flex: 0 0 auto;
+      }
+      nav {
+        flex: 0 0 auto;
+      }
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        height: 100vh;
+        width: 70vw;
+        max-width: 320px;
+        background: rgba(24, 24, 40, 0);
+        backdrop-filter: blur(18px) saturate(1.2);
+        -webkit-backdrop-filter: blur(18px) saturate(1.2);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 100px 30px 30px 30px;
+        box-shadow: -2px 0 16px #0008;
+        z-index: 25;
+        transition: right 0.3s;
+      }
+      nav ul.open {
+        right: 0;
+      }
+      .nav-toggle {
+        display: flex;
+        position: fixed;
+        top: 1.5rem;
+        right: 7vw;
+        margin-left: 0;
+        z-index: 40;
+      }
+      nav {
+        display: none;
+      }
+      nav ul.open {
+        display: flex;
+      }
+    }
+    }
+
+    nav a {
+      color: #fff !important;
+      text-decoration: none !important;
+      font-family: 'Poppins', Arial, sans-serif !important;
+      font-weight: 700 !important;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, header nav ul li a:hover, nav ul li a:hover {
+      color: #765aa8 !important;
+      text-decoration: none;
+    }
+
+    .navtext{
+      font-size: 1.3rem;
+    }
+
+    .navtext:hover {
+      color: #765aa8;
+    }
+
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height:85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg,
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 5;
+    }
+
+    .glitch-layer {
+      mix-blend-mode: lighten;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .glitch1 {
+      animation: glitch-anim 1.2s infinite linear alternate;
+      filter: drop-shadow(-6px 0 #00ffe7) drop-shadow(6px 0 #ff00c8);
+      z-index: 3;
+    }
+
+    .glitch2 {
+      animation: glitch-anim2 1.1s infinite linear alternate;
+      filter: drop-shadow(-4px 0 #fff) drop-shadow(4px 0 #00f0ff);
+      z-index: 4;
+    }
+
+    @keyframes glitch-anim {
+      20% { clip-path: inset(10% 0 85% 0); transform: translate(-5px,2px);}
+      40% { clip-path: inset(80% 0 0 0); transform: translate(5px,-2px);}
+    }
+    @keyframes glitch-anim2 {
+      15% { clip-path: inset(0 0 80% 0);}
+      45% { clip-path: inset(0 80% 0 0);}
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 90%;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin: 0.2em 0;
+      font-weight: 900;
+      color: var(--color-primary);
+    }
+
+    .hero-title-secondary {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      margin: 0.2em 0;
+      font-family: 'Audiowide', Arial, sans-serif;
+      color: var(--color-secondary);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      margin-top: 1rem;
+    }
+
+    /* ===== CURSOR SHADOW ===== */
+    .cursor-shadow {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #775aa8ad 50%, #3d2066bb 70%, transparent 100%);
+      filter: blur(35px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 9;
+    }
+
+    .cursor-shadow.active { opacity: 1; }
+
+    /* ===== RECOGNITIONS ===== */
+    .recognitions {
+      padding: 60px 20px;
+      text-align: center;
+      
+      
+    }
+
+    .recognitions-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      margin-top: -10px;
+    }
+
+    .recognitions-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .recognition-logo {
+      max-width: 150px;
+      height: auto;
+      transition: transform 0.3s;
+    }
+
+    .recognition-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== INICIO1 ===== */
+    .inicio1 {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .inicio1-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1100px;
+      flex-wrap: wrap;
+    }
+
+    .inicio1-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 20px;
+    }
+
+    .inicio1-content p {
+      font-size: 1.1rem;
+    }
+
+    .inicio1 img {
+      max-width: 280px;
+      width: 100%;
+    }
+
+
+
+      .inicio1-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        max-width: 1100px;
+        width: 100%;
+      }
+
+      @media (max-width: 900px) {
+        .inicio1-wrapper {
+          flex-direction: column;
+          gap: 24px;
+          text-align: center;
+        }
+        .inicio1-content {
+          width: 100%;
+        }
+      }
+      scrollbar-width: none;
+    }
+
+    .galeria::-webkit-scrollbar { display: none; }
+
+    .galeria img {
+      flex: 0 0 auto;
+      max-width: 250px;
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 (altura del 56.25% del ancho) */
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.carrusel {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  max-width: 900px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.imagenes {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.imagenes img {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+}
+.btn.prev { left: 10px; }
+.btn.next { right: 10px; }
+
+
+
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #0d0d0d;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><img src="png/logo_307.png" alt="Logo Asper-Bot"></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="navBar">
+      <ul id="navMenu">
+        <li><a class="navtext" href="#hero">Inicio</a></li>
+        <li><a class="navtext" href="Nosotros.html">Nosotros</a></li>
+        <li><a class="navtext" href="#">Contacto</a></li>
+        <li><a class="navtext" href="#">ITI3</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="png/hero_back.png" alt="Fondo principal">
+      <img src="png/hero_back.png" alt="Glitch1" class="glitch-layer glitch1">
+      <img src="png/hero_back.png" alt="Glitch2" class="glitch-layer glitch2">
+    </div>
+    <div class="cursor-shadow" id="cursorShadow"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Asper - Bot</h1>
+      <h1 class="hero-title-secondary">307</h1>
+      <p class="hero-subtitle">Tu asistente inteligente</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="recognitions">
+      <h2 class="recognitions-title">Reconocimientos</h2>
+      <div class="recognitions-logos">
+        <img src="png/iti3_logo.png" alt="ITI3" class="recognition-logo">
+        <img src="png/tec_logo.png" alt="Tecnológico" class="recognition-logo">
+        <img src="png/innovatec_logo.png" alt="Innovatec" class="recognition-logo">
+      </div>
+    </section>
+
+    <section class="inicio1">
+      <div class="inicio1-wrapper">
+        <div class="inicio1-content">
+          <h2>La Inteligencia al Servicio de la Inclusión</h2>
+          <p>Asper-Bot 307 es tu asistente inteligente diseñado para facilitar tu vida diaria. Con capacidades avanzadas de procesamiento de lenguaje natural y aprendizaje automático, puede ayudarte con una variedad de tareas, desde responder preguntas hasta gestionar tu agenda.</p>
+        </div>
+          <div class="inicio1-img">
+            <img src="png/eliot1.jpeg" alt="Núcleo tecnológico">
+          </div>
+      </div>
+    </section>
+
+
+<div class="video-responsive">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/kzry89UsRVw?si=iTp6bWUPF0yChVZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+  
+
+
+<section class="inicio2">
+    <div class="inicio2-wrapper">
+      <div class="inicio2-col inicio2-problema">
+        <h2>El desafío de la interacción social</h2>
+        <p>Para millones de personas, acciones cotidianas como ir a un restaurante o realizar un trámite pueden ser abrumadoras. La dificultad para interpretar señales no verbales y la presión social crean barreras que limitan la participación plena en la sociedad.</p>
+      </div>
+      <div class="inicio2-col inicio2-solucion">
+        <h2>La solución de Asperbot</h2>
+        <p>Asperbot proporciona un espacio sin prejuicios. Al interactuar con un robot que no juzga ni muestra reacciones ambiguas, los usuarios pueden practicar sus habilidades de comunicación de manera consistente y a su propio ritmo, construyendo la confianza necesaria para el mundo real.</p>
+      </div>
+    </div>
+  </section>
+
+<div class="carrusel">
+  <div class="imagenes" id="imagenes">
+    <img src="png/foto1.jpeg" alt="Imagen 1">
+    <img src="png/foto2.jpeg" alt="Imagen 2">
+    <img src="png/foto3.jpeg" alt="Imagen 3">
+    <img src="png/foto4.jpeg" alt="Imagen 4">
+  </div>
+  <button class="btn prev" onclick="mover(-1)">❮</button>
+  <button class="btn next" onclick="mover(1)">❯</button>
+</div>
+
+  <footer>
+    &copy; 2025 Asper-Bot 307 — Todos los derechos reservados
+  </footer>
+
+  <script>
+    // Menú responsive reorganizado
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navBar = document.getElementById('navBar');
+
+    function updateMenuDisplay() {
+      if (window.innerWidth <= 800) {
+        navBar.style.display = 'none';
+        navToggle.style.display = 'flex';
+      } else {
+        navBar.style.display = 'flex';
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.style.display = 'none';
+      }
+    }
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      if (navMenu.classList.contains('open')) {
+        navBar.style.display = 'block';
+      } else {
+        navBar.style.display = 'none';
+      }
+      navToggle.classList.toggle('open');
+    });
+
+    window.addEventListener('resize', updateMenuDisplay);
+    window.addEventListener('DOMContentLoaded', updateMenuDisplay);
+
+    // Cerrar menú al hacer click fuera (en móvil)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 800 && navMenu.classList.contains('open')) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          navMenu.classList.remove('open');
+          navBar.style.display = 'none';
+          navToggle.classList.remove('open');
+        }
+      }
+    });
+
+    // Cursor shadow
+    const hero = document.getElementById('hero');
+    const cursorShadow = document.getElementById('cursorShadow');
+    let mouseX = 0, mouseY = 0;
+    let shadowX = 0, shadowY = 0;
+    let isActive = false;
+    let shadowTimeout;
+
+    hero.addEventListener('mousemove', e => {
+      const rect = hero.getBoundingClientRect();
+      mouseX = e.clientX - rect.left - cursorShadow.offsetWidth / 2;
+      mouseY = e.clientY - rect.top - cursorShadow.offsetHeight / 2;
+      cursorShadow.classList.add('active');
+      isActive = true;
+      clearTimeout(shadowTimeout);
+      shadowTimeout = setTimeout(() => {
+        cursorShadow.classList.remove('active');
+        isActive = false;
+      }, 120);
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      cursorShadow.classList.remove('active');
+      isActive = false;
+    });
+
+    function animateShadow() {
+      shadowX += (mouseX - shadowX) * 0.5;
+      shadowY += (mouseY - shadowY) * 0.5;
+      cursorShadow.style.left = `${shadowX}px`;
+      cursorShadow.style.top = `${shadowY}px`;
+      requestAnimationFrame(animateShadow);
+    }
+    animateShadow();
+
+
+
+    const imagenes = document.getElementById("imagenes");
+const total = imagenes.children.length;
+let index = 0;
+
+function mover(direccion) {
+  index += direccion;
+  if (index < 0) index = total - 1;
+  if (index >= total) index = 0;
+  imagenes.style.transform = `translateX(${-index * 100}%)`;
+}
+
+  </script>
+</body>
+</html>
